@@ -1,0 +1,9 @@
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Payment.Domain/bin/Debug/netcoreapp3.1/LeonardoStore.Payment.Domain.deps.json
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Payment.Domain/bin/Debug/netcoreapp3.1/LeonardoStore.Payment.Domain.dll
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Payment.Domain/bin/Debug/netcoreapp3.1/LeonardoStore.Payment.Domain.pdb
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Payment.Domain/obj/Debug/netcoreapp3.1/LeonardoStore.Payment.Domain.csprojAssemblyReference.cache
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Payment.Domain/obj/Debug/netcoreapp3.1/LeonardoStore.Payment.Domain.AssemblyInfoInputs.cache
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Payment.Domain/obj/Debug/netcoreapp3.1/LeonardoStore.Payment.Domain.AssemblyInfo.cs
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Payment.Domain/obj/Debug/netcoreapp3.1/LeonardoStore.Payment.Domain.csproj.CoreCompileInputs.cache
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Payment.Domain/obj/Debug/netcoreapp3.1/LeonardoStore.Payment.Domain.dll
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Payment.Domain/obj/Debug/netcoreapp3.1/LeonardoStore.Payment.Domain.pdb

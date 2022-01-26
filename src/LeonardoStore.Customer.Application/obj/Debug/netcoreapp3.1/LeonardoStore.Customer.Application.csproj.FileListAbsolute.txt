@@ -1,0 +1,14 @@
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Application/bin/Debug/netcoreapp3.1/LeonardoStore.Customer.Application.deps.json
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Application/bin/Debug/netcoreapp3.1/LeonardoStore.Customer.Application.dll
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Application/bin/Debug/netcoreapp3.1/LeonardoStore.Customer.Application.pdb
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Application/bin/Debug/netcoreapp3.1/LeonardoStore.Customer.Domain.dll
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Application/bin/Debug/netcoreapp3.1/LeonardoStore.SharedContext.dll
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Application/bin/Debug/netcoreapp3.1/LeonardoStore.Customer.Domain.pdb
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Application/bin/Debug/netcoreapp3.1/LeonardoStore.SharedContext.pdb
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Application/obj/Debug/netcoreapp3.1/LeonardoStore.Customer.Application.csprojAssemblyReference.cache
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Application/obj/Debug/netcoreapp3.1/LeonardoStore.Customer.Application.AssemblyInfoInputs.cache
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Application/obj/Debug/netcoreapp3.1/LeonardoStore.Customer.Application.AssemblyInfo.cs
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Application/obj/Debug/netcoreapp3.1/LeonardoStore.Customer.Application.csproj.CoreCompileInputs.cache
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Application/obj/Debug/netcoreapp3.1/LeonardoStore.Customer.Application.csproj.CopyComplete
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Application/obj/Debug/netcoreapp3.1/LeonardoStore.Customer.Application.dll
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Application/obj/Debug/netcoreapp3.1/LeonardoStore.Customer.Application.pdb

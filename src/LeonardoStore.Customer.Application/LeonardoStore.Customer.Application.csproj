@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\LeonardoStore.Customer.Domain\LeonardoStore.Customer.Domain.csproj" />
+      <ProjectReference Include="..\LeonardoStore.SharedContext\LeonardoStore.SharedContext.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Queries" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="NetDevPack.Security.JwtSigningCredentials.AspNetCore" Version="1.0.3" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.7" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.7" />
+    </ItemGroup>
+
+</Project>

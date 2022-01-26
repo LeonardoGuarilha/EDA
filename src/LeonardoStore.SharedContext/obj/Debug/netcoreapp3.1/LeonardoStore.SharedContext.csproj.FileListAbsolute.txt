@@ -1,0 +1,9 @@
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.SharedContext/bin/Debug/netcoreapp3.1/LeonardoStore.SharedContext.deps.json
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.SharedContext/bin/Debug/netcoreapp3.1/LeonardoStore.SharedContext.dll
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.SharedContext/bin/Debug/netcoreapp3.1/LeonardoStore.SharedContext.pdb
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.SharedContext/obj/Debug/netcoreapp3.1/LeonardoStore.SharedContext.csprojAssemblyReference.cache
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.SharedContext/obj/Debug/netcoreapp3.1/LeonardoStore.SharedContext.AssemblyInfoInputs.cache
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.SharedContext/obj/Debug/netcoreapp3.1/LeonardoStore.SharedContext.AssemblyInfo.cs
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.SharedContext/obj/Debug/netcoreapp3.1/LeonardoStore.SharedContext.csproj.CoreCompileInputs.cache
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.SharedContext/obj/Debug/netcoreapp3.1/LeonardoStore.SharedContext.dll
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.SharedContext/obj/Debug/netcoreapp3.1/LeonardoStore.SharedContext.pdb

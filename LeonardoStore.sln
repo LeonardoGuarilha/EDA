@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contexts", "Contexts", "{97893E4F-EFF7-48BA-AF4C-A8CD944A899F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OrderContext", "OrderContext", "{599C9E47-4E44-4363-894E-E5D834634927}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeonardoStore.Order.Domain", "src\LeonardoStore.Order.Domain\LeonardoStore.Order.Domain.csproj", "{17FF7353-6071-45DC-89CD-38835779210D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeonardoStore.Order.Infra", "src\LeonardoStore.Order.Infra\LeonardoStore.Order.Infra.csproj", "{6F9B4EE0-687B-4ED7-9AB4-168053D13FE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PaymentContext", "PaymentContext", "{92F33AB9-0207-4BAC-ADAD-6A2DD48C49DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeonardoStore.Payment.Domain", "src\LeonardoStore.Payment.Domain\LeonardoStore.Payment.Domain.csproj", "{71859239-0BE4-4DD7-B1F2-BEB381540530}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeonardoStore.SharedContext", "src\LeonardoStore.SharedContext\LeonardoStore.SharedContext.csproj", "{69745BE4-6260-421B-8AE0-CA1E7F598837}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CustomerContext", "CustomerContext", "{DF05A8F8-510B-43D3-81A1-DCEE85BA5030}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeonardoStore.Customer.Domain", "src\LeonardoStore.Customer.Domain\LeonardoStore.Customer.Domain.csproj", "{0F636D2F-0E04-4D45-AA25-6A20F52B8D41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeonardoStore.Customer.Api", "src\LeonardoStore.Customer.Api\LeonardoStore.Customer.Api.csproj", "{4E8AA2FA-E731-4C8D-B0E0-79E14602070D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeonardoStore.Customer.Application", "src\LeonardoStore.Customer.Application\LeonardoStore.Customer.Application.csproj", "{2B0B250D-3F8D-4A27-B76B-4F084DF1827F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeonardoStore.Customer.Infra", "src\LeonardoStore.Customer.Infra\LeonardoStore.Customer.Infra.csproj", "{2ED942B3-22C6-45C4-8C72-82D95D55C29D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{599C9E47-4E44-4363-894E-E5D834634927} = {97893E4F-EFF7-48BA-AF4C-A8CD944A899F}
+		{17FF7353-6071-45DC-89CD-38835779210D} = {599C9E47-4E44-4363-894E-E5D834634927}
+		{6F9B4EE0-687B-4ED7-9AB4-168053D13FE4} = {599C9E47-4E44-4363-894E-E5D834634927}
+		{92F33AB9-0207-4BAC-ADAD-6A2DD48C49DF} = {97893E4F-EFF7-48BA-AF4C-A8CD944A899F}
+		{71859239-0BE4-4DD7-B1F2-BEB381540530} = {92F33AB9-0207-4BAC-ADAD-6A2DD48C49DF}
+		{69745BE4-6260-421B-8AE0-CA1E7F598837} = {97893E4F-EFF7-48BA-AF4C-A8CD944A899F}
+		{DF05A8F8-510B-43D3-81A1-DCEE85BA5030} = {97893E4F-EFF7-48BA-AF4C-A8CD944A899F}
+		{0F636D2F-0E04-4D45-AA25-6A20F52B8D41} = {DF05A8F8-510B-43D3-81A1-DCEE85BA5030}
+		{4E8AA2FA-E731-4C8D-B0E0-79E14602070D} = {DF05A8F8-510B-43D3-81A1-DCEE85BA5030}
+		{2B0B250D-3F8D-4A27-B76B-4F084DF1827F} = {DF05A8F8-510B-43D3-81A1-DCEE85BA5030}
+		{2ED942B3-22C6-45C4-8C72-82D95D55C29D} = {DF05A8F8-510B-43D3-81A1-DCEE85BA5030}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17FF7353-6071-45DC-89CD-38835779210D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17FF7353-6071-45DC-89CD-38835779210D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17FF7353-6071-45DC-89CD-38835779210D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17FF7353-6071-45DC-89CD-38835779210D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F9B4EE0-687B-4ED7-9AB4-168053D13FE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F9B4EE0-687B-4ED7-9AB4-168053D13FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F9B4EE0-687B-4ED7-9AB4-168053D13FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F9B4EE0-687B-4ED7-9AB4-168053D13FE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71859239-0BE4-4DD7-B1F2-BEB381540530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71859239-0BE4-4DD7-B1F2-BEB381540530}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71859239-0BE4-4DD7-B1F2-BEB381540530}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71859239-0BE4-4DD7-B1F2-BEB381540530}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69745BE4-6260-421B-8AE0-CA1E7F598837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69745BE4-6260-421B-8AE0-CA1E7F598837}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69745BE4-6260-421B-8AE0-CA1E7F598837}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69745BE4-6260-421B-8AE0-CA1E7F598837}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F636D2F-0E04-4D45-AA25-6A20F52B8D41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F636D2F-0E04-4D45-AA25-6A20F52B8D41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F636D2F-0E04-4D45-AA25-6A20F52B8D41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F636D2F-0E04-4D45-AA25-6A20F52B8D41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E8AA2FA-E731-4C8D-B0E0-79E14602070D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E8AA2FA-E731-4C8D-B0E0-79E14602070D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E8AA2FA-E731-4C8D-B0E0-79E14602070D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E8AA2FA-E731-4C8D-B0E0-79E14602070D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B0B250D-3F8D-4A27-B76B-4F084DF1827F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B0B250D-3F8D-4A27-B76B-4F084DF1827F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B0B250D-3F8D-4A27-B76B-4F084DF1827F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B0B250D-3F8D-4A27-B76B-4F084DF1827F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ED942B3-22C6-45C4-8C72-82D95D55C29D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ED942B3-22C6-45C4-8C72-82D95D55C29D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ED942B3-22C6-45C4-8C72-82D95D55C29D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ED942B3-22C6-45C4-8C72-82D95D55C29D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

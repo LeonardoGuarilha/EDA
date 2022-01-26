@@ -1,0 +1,17 @@
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Infra/bin/Debug/netcoreapp3.1/LeonardoStore.Customer.Infra.deps.json
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Infra/bin/Debug/netcoreapp3.1/LeonardoStore.Customer.Infra.runtimeconfig.json
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Infra/bin/Debug/netcoreapp3.1/LeonardoStore.Customer.Infra.runtimeconfig.dev.json
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Infra/bin/Debug/netcoreapp3.1/LeonardoStore.Customer.Infra.dll
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Infra/bin/Debug/netcoreapp3.1/LeonardoStore.Customer.Infra.pdb
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Infra/bin/Debug/netcoreapp3.1/LeonardoStore.Customer.Domain.dll
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Infra/bin/Debug/netcoreapp3.1/LeonardoStore.SharedContext.dll
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Infra/bin/Debug/netcoreapp3.1/LeonardoStore.Customer.Domain.pdb
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Infra/bin/Debug/netcoreapp3.1/LeonardoStore.SharedContext.pdb
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Infra/obj/Debug/netcoreapp3.1/LeonardoStore.Customer.Infra.csprojAssemblyReference.cache
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Infra/obj/Debug/netcoreapp3.1/LeonardoStore.Customer.Infra.AssemblyInfoInputs.cache
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Infra/obj/Debug/netcoreapp3.1/LeonardoStore.Customer.Infra.AssemblyInfo.cs
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Infra/obj/Debug/netcoreapp3.1/LeonardoStore.Customer.Infra.csproj.CoreCompileInputs.cache
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Infra/obj/Debug/netcoreapp3.1/LeonardoStore.Customer.Infra.csproj.CopyComplete
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Infra/obj/Debug/netcoreapp3.1/LeonardoStore.Customer.Infra.dll
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Infra/obj/Debug/netcoreapp3.1/LeonardoStore.Customer.Infra.pdb
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Infra/obj/Debug/netcoreapp3.1/LeonardoStore.Customer.Infra.genruntimeconfig.cache
