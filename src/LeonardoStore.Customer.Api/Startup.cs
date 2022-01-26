@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using LeonardoStore.Customer.Api.Configurations;
+using LeonardoStore.Customer.Application.Commands.Handlers;
 using LeonardoStore.Customer.Application.Services;
 using LeonardoStore.Customer.Domain.Repositories;
 using LeonardoStore.Customer.Infra.DataContexts;
@@ -10,13 +7,10 @@ using LeonardoStore.Customer.Infra.Repositories;
 using LeonardoStore.SharedContext.IdentityConfig;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using NetDevPack.Security.JwtSigningCredentials.AspNetCore;
 
 namespace LeonardoStore.Customer.Api
@@ -66,6 +60,8 @@ namespace LeonardoStore.Customer.Api
             services.AddScoped<CustomerDbContext>();
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<AuthenticationAuthorizationService>();
+            services.AddScoped<CustomerCommandHandler>();
+            services.AddScoped<LoginCommandHandler>();
 
         }
 
@@ -77,7 +73,7 @@ namespace LeonardoStore.Customer.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
             

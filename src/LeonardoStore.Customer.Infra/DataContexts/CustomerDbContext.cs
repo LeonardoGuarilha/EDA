@@ -30,9 +30,10 @@ namespace LeonardoStore.Customer.Infra.DataContexts
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(CustomerDbContext).Assembly);
         }
 
-        public Task<bool> Commit()
+        public async Task<bool> Commit()
         {
-            throw new System.NotImplementedException();
+            var success = await base.SaveChangesAsync() > 0;
+            return success;
         }
     }
 }

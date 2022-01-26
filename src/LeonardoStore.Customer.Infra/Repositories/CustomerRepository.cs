@@ -3,76 +3,91 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using LeonardoStore.Customer.Domain.Entities;
 using LeonardoStore.Customer.Domain.Repositories;
+using LeonardoStore.Customer.Infra.DataContexts;
 using LeonardoStore.SharedContext.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace LeonardoStore.Customer.Infra.Repositories
 {
     public class CustomerRepository : ICustomerRepository
     {
-        public IUnitOfWork UnitOfWork { get; }
+        private readonly CustomerDbContext _context;
+
+        public CustomerRepository(CustomerDbContext context)
+        {
+            _context = context;
+        }
+
+        public IUnitOfWork UnitOfWork => _context;
+        
         public void SaveCustomer(Domain.Entities.Customer customer)
         {
-            throw new NotImplementedException();
+            _context.Customers.Add(customer);
         }
 
         public void UpdateCustomer(Domain.Entities.Customer customer)
         {
-            throw new NotImplementedException();
+            _context.Customers.Update(customer);
         }
 
-        public void DeleteCustomer(Guid customerId)
+        public void DeleteCustomer(Domain.Entities.Customer customer)
         {
-            throw new NotImplementedException();
+            _context.Customers.Remove(customer);
         }
 
-        public Domain.Entities.Customer GetCustomerById(Guid customerId)
+        public async Task<Domain.Entities.Customer> GetCustomerById(Guid customerId)
         {
-            throw new NotImplementedException();
+            return await _context.Customers.FindAsync(customerId);
         }
 
-        public Task<IEnumerable<Domain.Entities.Customer>> GetAllCustomers()
+        public async Task<IEnumerable<Domain.Entities.Customer>> GetAllCustomers()
         {
-            throw new NotImplementedException();
+            return await _context.Customers.AsNoTracking().ToListAsync();
         }
 
-        public Task<bool> DocumentExists(string document)
+        public async Task<Domain.Entities.Customer> GetCustomerByEmail(string email)
         {
-            throw new NotImplementedException();
+            return await _context.Customers.FirstOrDefaultAsync(c => c.Email.Address == email);
         }
 
-        public Task<bool> EmailExists(string email)
+        public async Task<bool> DocumentExists(string document)
         {
-            throw new NotImplementedException();
+            return await _context.Customers.AnyAsync(c => c.Document.Number == document);
+        }
+
+        public async Task<bool> EmailExists(string email)
+        {
+            return await _context.Customers.AnyAsync(c => c.Email.Address == email);
         }
 
         public void SaveAddress(Address address)
         {
-            throw new NotImplementedException();
+            _context.Addresses.Add(address);
         }
 
         public void UpdateAddress(Address address)
         {
-            throw new NotImplementedException();
+            _context.Addresses.Update(address);
         }
 
-        public void DeleteAddress(Guid addressId)
+        public void DeleteAddress(Address address)
         {
-            throw new NotImplementedException();
+            _context.Addresses.Remove(address);
         }
 
-        public Address GetAddressById(Guid addressId)
+        public async Task<Address> GetAddressById(Guid addressId)
         {
-            throw new NotImplementedException();
+            return await _context.Addresses.FindAsync(addressId);
         }
 
-        public Task<IEnumerable<Address>> GetAllAddresses()
+        public async Task<IEnumerable<Address>> GetAllAddresses()
         {
-            throw new NotImplementedException();
+            return await _context.Addresses.AsNoTracking().ToListAsync();
         }
         
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _context.Dispose();
         }
     }
 }

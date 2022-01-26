@@ -22,10 +22,6 @@
       <ProjectReference Include="..\LeonardoStore.Customer.Application\LeonardoStore.Customer.Application.csproj" />
       <ProjectReference Include="..\LeonardoStore.Customer.Infra\LeonardoStore.Customer.Infra.csproj" />
     </ItemGroup>
-    
-    <ItemGroup>
-      <Folder Include="Controllers" />
-    </ItemGroup>
 
 
 </Project>

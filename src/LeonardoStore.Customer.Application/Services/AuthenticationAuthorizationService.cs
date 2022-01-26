@@ -4,7 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using LeonardoStore.Customer.Application.Commands;
+using LeonardoStore.Customer.Application.Queries;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using NetDevPack.Security.JwtSigningCredentials.Interfaces;
@@ -24,26 +24,26 @@ namespace LeonardoStore.Customer.Application.Services
             _jwksService = jwksService;
         }
         
-        public async Task<CommandResult> GerarJwt(string email)
+        public async Task<UserLoginQuery> CreateJwt(string email, Guid userId)
         {
             var user = await UserManager.FindByEmailAsync(email);
             var claims = await UserManager.GetClaimsAsync(user);
 
-            var identityClaims = await ObterClaimsUsuario(claims, user);
-            var encodedToken = CodificarToken(identityClaims);
+            var identityClaims = await GetUserClaims(claims, user, userId);
+            var encodedToken = CodifyToken(identityClaims);
 
             // Gera o Refresh Token
             //var refreshToken = await GerarRefreshToken(email);
 
-            return ObterRespostaToken(encodedToken, user, claims);
+            return GetTokenResponse(encodedToken, email, userId ,claims);
         }
         
-        private async Task<ClaimsIdentity> ObterClaimsUsuario(ICollection<Claim> claims, IdentityUser user)
+        private async Task<ClaimsIdentity> GetUserClaims(ICollection<Claim> claims, IdentityUser user, Guid userId)
         {
             var userRoles = await UserManager.GetRolesAsync(user);
 
             // Lista de claims
-            claims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.Id));
+            claims.Add(new Claim(JwtRegisteredClaimNames.Sub, userId.ToString()));
             claims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email));
             claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
             claims.Add(new Claim(JwtRegisteredClaimNames.Nbf, ToUnixEpochDate(DateTime.UtcNow).ToString()));
@@ -67,7 +67,7 @@ namespace LeonardoStore.Customer.Application.Services
             return identityClaims;
         }
         
-        private string CodificarToken(ClaimsIdentity identityClaims)
+        private string CodifyToken(ClaimsIdentity identityClaims)
         {
             // Manipulador do Token
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -93,18 +93,20 @@ namespace LeonardoStore.Customer.Application.Services
             return tokenHandler.WriteToken(token);
         }
         
-        private CommandResult ObterRespostaToken(string encodedToken, IdentityUser user,
+        private UserLoginQuery GetTokenResponse(string encodedToken, string email, Guid userId,
             IEnumerable<Claim> claims)
         {
-            return new CommandResult(true, "", new
+            return new UserLoginQuery
             {
                 AccessToken = encodedToken,
                 ExpiresIn = TimeSpan.FromHours(1).TotalSeconds,
-                Id = user.Id,
-                Email = user.Email,
-                Claims = claims.Select(c => new { c.Type, c.Value })
-            });
-
+                UsuarioToken = new UserToken
+                {
+                    Id = userId,
+                    Email = email,
+                    Claims = claims.Select(c => new UserClaim { Type = c.Type, Value = c.Value })
+                }
+            };
         }
         
         // Anotação do sistema Unix de como exibir uma data

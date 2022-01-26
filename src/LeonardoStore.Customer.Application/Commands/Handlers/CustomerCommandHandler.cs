@@ -1,7 +1,9 @@
+using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Flunt.Notifications;
 using LeonardoStore.Customer.Application.Services;
-using LeonardoStore.Customer.Domain.Entities;
+using LeonardoStore.Customer.Domain.Enums;
 using LeonardoStore.Customer.Domain.Repositories;
 using LeonardoStore.Customer.Domain.ValueObjects;
 using LeonardoStore.SharedContext.Commands;
@@ -26,7 +28,7 @@ namespace LeonardoStore.Customer.Application.Commands.Handlers
 
         public async Task<ICommandResult> HandleAsync(CreateCustomerCommand command)
         {
-            // Fail Fast Validations
+            // Fail Fast Validation
             command.Validate();
             if (command.Invalid)
             {
@@ -44,12 +46,19 @@ namespace LeonardoStore.Customer.Application.Commands.Handlers
             
             // Gera os VOs
             var name = new Name(command.FirstName, command.LastName);
-            var document = new Document(command.Document, command.DocumentType);
+            var document = new Document(command.Document, EDocumentType.CPF);
             var email = new Email(command.Email);
 
             // Gera as entidades
             var customer = new Domain.Entities.Customer(name, document, email);
-            var address = new Address(command.Street, command.Number, command.Neighborhood, command.City, command.State, command.Country, command.ZipCode);
+            //var address = new Address(command.Street, command.Number, command.Neighborhood, command.City, command.State, command.Country, command.ZipCode);
+            
+            // Agrupar as validações
+            AddNotifications(name, document, email, customer);
+            
+            // Verifica as notificações de Document e Email
+            if(Invalid)
+                return new CommandResult(false, "Não foi possível realizar seu cadastro, verifique as informações", Notifications);
             
             // Cria o usuário do Identity
             var user = new IdentityUser
@@ -63,20 +72,14 @@ namespace LeonardoStore.Customer.Application.Commands.Handlers
 
             if (result.Succeeded)
             {
-                // Relacionamentos
-                // Agrupar as validações
-                AddNotifications(name, document, email, customer, address);
-            
-                // Checar as notificações
-                if(Invalid)
-                    return new CommandResult(false, "Não foi possível realizar seu cadastro, verifique as informações", Notifications);
-            
                 // Salvar as informações
                 _customerRepository.SaveCustomer(customer);
             
                 await _customerRepository.UnitOfWork.Commit();
 
                 // Envia e-mail de boas vindas
+                customer.OnCustomerCreatedEvent += OnCustomerCreatedEvent;
+                customer.CustomerCreatedEvent();
 
                 // Retornar informações
                 return new CommandResult(
@@ -89,7 +92,13 @@ namespace LeonardoStore.Customer.Application.Commands.Handlers
                     });
             }
 
-            return new CommandResult(false, "Não foi possível realizar seu cadastro, verifique as informações", null);
+            return new CommandResult(false, "Não foi possível realizar seu cadastro, verifique as informações", result.Errors.Select(e => e.Description));
+        }
+        
+        private void OnCustomerCreatedEvent(object sender, EventArgs args)
+        {
+            // Enviar e-mail de boas vindas
+            Console.WriteLine("Bem vindo a Leonardo Store!");
         }
     }
 }
