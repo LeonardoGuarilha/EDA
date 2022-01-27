@@ -1,5 +1,6 @@
 using LeonardoStore.Customer.Application.Configurations;
 using LeonardoStore.Customer.Infra.DataContexts;
+using LeonardoStore.SharedContext.RefreshTokenAppSettings;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -14,9 +15,9 @@ namespace LeonardoStore.Customer.Api.Configurations
             IConfiguration configuration)
         {
             
-            //var appSettingsSection = configuration.GetSection("AppTokenSettings");
+            var appSettingsSection = configuration.GetSection("AppTokenSettings");
             // Vai retornar a instancia de AppTokenSettings com o que tem no appSettings > AppTokenSettings
-            //services.Configure<AppTokenSettings>(appSettingsSection);
+            services.Configure<AppTokenSettings>(appSettingsSection);
             
             // Adiciono o JWKS Manager
             services.AddJwksManager(options => options.Algorithm = Algorithm.ES256) // Escolhido o Algoritmo ES256

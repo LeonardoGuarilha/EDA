@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qcFsx580kjcBHobzSEvcDt58px3cgPw1PZxOXSvepVNBNZ3D0VmITFVWw+QHwKxx9tGolPNm+0obWsOmXXCKQw==",
+  "dgSpecHash": "E7i4pR3dNi2iDqqmHB5we3l3lLa7oPHDXTduNOv3+RYakhmUEHwQSJatC1nR2uvqmgEu9lQeXiG9UXfDwwLAnw==",
   "success": true,
   "projectFilePath": "/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Api/LeonardoStore.Customer.Api.csproj",
   "expectedPackageFiles": [

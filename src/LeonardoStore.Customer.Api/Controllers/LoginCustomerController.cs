@@ -22,5 +22,12 @@ namespace LeonardoStore.Customer.Api.Controllers
         {
             return _handler.HandleAsync(command);
         }
+
+        [HttpPost]
+        [Route("refresh-token")]
+        public Task<ICommandResult> RefreshToken([FromBody] RefreshTokenCommand command)
+        {
+            return _handler.HandleAsync(command);
+        }
     }
 }

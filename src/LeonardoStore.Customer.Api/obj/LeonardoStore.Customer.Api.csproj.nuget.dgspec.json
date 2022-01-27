@@ -16,9 +16,15 @@
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
+        "configFilePaths": [
+          "/Users/leonardoguarilha/.nuget/NuGet/NuGet.Config"
+        ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
@@ -119,14 +125,23 @@
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
+        "configFilePaths": [
+          "/Users/leonardoguarilha/.nuget/NuGet/NuGet.Config"
+        ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
               "/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Domain/LeonardoStore.Customer.Domain.csproj": {
                 "projectPath": "/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Domain/LeonardoStore.Customer.Domain.csproj"
+              },
+              "/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Infra/LeonardoStore.Customer.Infra.csproj": {
+                "projectPath": "/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Infra/LeonardoStore.Customer.Infra.csproj"
               },
               "/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.SharedContext/LeonardoStore.SharedContext.csproj": {
                 "projectPath": "/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.SharedContext/LeonardoStore.SharedContext.csproj"
@@ -190,9 +205,15 @@
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
+        "configFilePaths": [
+          "/Users/leonardoguarilha/.nuget/NuGet/NuGet.Config"
+        ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
@@ -250,9 +271,15 @@
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
+        "configFilePaths": [
+          "/Users/leonardoguarilha/.nuget/NuGet/NuGet.Config"
+        ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
@@ -334,9 +361,15 @@
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
+        "configFilePaths": [
+          "/Users/leonardoguarilha/.nuget/NuGet/NuGet.Config"
+        ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {}

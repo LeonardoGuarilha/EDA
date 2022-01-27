@@ -6,6 +6,7 @@ namespace LeonardoStore.Customer.Application.Queries
     public class UserLoginQuery
     {
         public string AccessToken { get; set; }
+        public Guid RefreshToken { get; set; }
         public double ExpiresIn { get; set; }
         public UserToken UsuarioToken { get; set; }
     }

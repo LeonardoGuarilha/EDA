@@ -1652,6 +1652,7 @@
       "LeonardoStore.Customer.Application/1.0.0": {
         "dependencies": {
           "LeonardoStore.Customer.Domain": "1.0.0",
+          "LeonardoStore.Customer.Infra": "1.0.0",
           "LeonardoStore.SharedContext": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.7",
           "Microsoft.AspNetCore.Identity.UI": "3.1.7",

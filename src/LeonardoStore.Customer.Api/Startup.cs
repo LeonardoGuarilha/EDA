@@ -58,6 +58,7 @@ namespace LeonardoStore.Customer.Api
             services.AddJwtConfiguration(Configuration);
 
             services.AddScoped<CustomerDbContext>();
+            services.AddScoped<IdentityDbContext>();
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<AuthenticationAuthorizationService>();
             services.AddScoped<CustomerCommandHandler>();

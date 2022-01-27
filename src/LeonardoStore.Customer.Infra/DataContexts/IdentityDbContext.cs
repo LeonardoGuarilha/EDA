@@ -1,3 +1,4 @@
+using LeonardoStore.Customer.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using NetDevPack.Security.JwtSigningCredentials;
 using NetDevPack.Security.JwtSigningCredentials.Store.EntityFrameworkCore;
@@ -10,5 +11,7 @@ namespace LeonardoStore.Customer.Infra.DataContexts
         public IdentityDbContext(DbContextOptions<IdentityDbContext> options) : base(options) { }
         
         public DbSet<SecurityKeyWithPrivate> SecurityKeys { get; set; }
+
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
     }
 }

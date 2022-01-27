@@ -12,3 +12,5 @@
 /Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Application/obj/Debug/netcoreapp3.1/LeonardoStore.Customer.Application.csproj.CopyComplete
 /Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Application/obj/Debug/netcoreapp3.1/LeonardoStore.Customer.Application.dll
 /Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Application/obj/Debug/netcoreapp3.1/LeonardoStore.Customer.Application.pdb
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Application/bin/Debug/netcoreapp3.1/LeonardoStore.Customer.Infra.dll
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Application/bin/Debug/netcoreapp3.1/LeonardoStore.Customer.Infra.pdb

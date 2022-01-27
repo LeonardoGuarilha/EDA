@@ -5,7 +5,12 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using LeonardoStore.Customer.Application.Queries;
+using LeonardoStore.Customer.Domain.Entities;
+using LeonardoStore.Customer.Infra.DataContexts;
+using LeonardoStore.SharedContext.RefreshTokenAppSettings;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using NetDevPack.Security.JwtSigningCredentials.Interfaces;
 
@@ -16,12 +21,20 @@ namespace LeonardoStore.Customer.Application.Services
         public readonly SignInManager<IdentityUser> SignInManager; // Gerencia questoes de login
         public readonly UserManager<IdentityUser> UserManager; // Gerencia como que eu administro o usuário
         private readonly IJsonWebKeySetService _jwksService;
+        private readonly IdentityDbContext _context;
+        private readonly AppTokenSettings _appTokenSettingsSettings;
 
-        public AuthenticationAuthorizationService(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, IJsonWebKeySetService jwksService)
+        public AuthenticationAuthorizationService(SignInManager<IdentityUser> signInManager, 
+            UserManager<IdentityUser> userManager, 
+            IJsonWebKeySetService jwksService, 
+            IdentityDbContext context, 
+            IOptions<AppTokenSettings> appTokenSettingsSettings)
         {
             SignInManager = signInManager;
             UserManager = userManager;
             _jwksService = jwksService;
+            _context = context;
+            _appTokenSettingsSettings = appTokenSettingsSettings.Value;
         }
         
         public async Task<UserLoginQuery> CreateJwt(string email, Guid userId)
@@ -33,9 +46,9 @@ namespace LeonardoStore.Customer.Application.Services
             var encodedToken = CodifyToken(identityClaims);
 
             // Gera o Refresh Token
-            //var refreshToken = await GerarRefreshToken(email);
+            var refreshToken = await GerarRefreshToken(email, userId);
 
-            return GetTokenResponse(encodedToken, email, userId ,claims);
+            return GetTokenResponse(encodedToken, email, userId, claims, refreshToken);
         }
         
         private async Task<ClaimsIdentity> GetUserClaims(ICollection<Claim> claims, IdentityUser user, Guid userId)
@@ -94,11 +107,12 @@ namespace LeonardoStore.Customer.Application.Services
         }
         
         private UserLoginQuery GetTokenResponse(string encodedToken, string email, Guid userId,
-            IEnumerable<Claim> claims)
+            IEnumerable<Claim> claims, RefreshToken refreshToken)
         {
             return new UserLoginQuery
             {
                 AccessToken = encodedToken,
+                RefreshToken = refreshToken.Token,
                 ExpiresIn = TimeSpan.FromHours(1).TotalSeconds,
                 UsuarioToken = new UserToken
                 {
@@ -114,7 +128,35 @@ namespace LeonardoStore.Customer.Application.Services
         private static long ToUnixEpochDate(DateTime date)
             => (long)Math.Round((date.ToUniversalTime() - new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero)).TotalSeconds);
 
+        
+        private async Task<RefreshToken> GerarRefreshToken(string email, Guid userId)
+        {
+            var refreshToken = new RefreshToken
+            {
+                Username = email,
+                ExpirationDate = DateTime.UtcNow.AddHours(_appTokenSettingsSettings.RefreshTokenExpiration),
+                UserId = userId
+            };
+
+            // Sempre que eu gerar um token para um usuário, eu removo os antigos
+            _context.RefreshTokens.RemoveRange(_context.RefreshTokens.Where(u => u.Username == email));
+            
+            await _context.RefreshTokens.AddAsync(refreshToken);
+            await _context.SaveChangesAsync();
+
+            return refreshToken;
+        }
+        
+        public async Task<RefreshToken> GetRefreshToken(Guid refreshToken)
+        {
+            var token = await _context.RefreshTokens.AsNoTracking()
+                .FirstOrDefaultAsync(u => u.Token == refreshToken);
+
+            return token != null && token.ExpirationDate.ToLocalTime() > DateTime.Now
+                ? token
+                : null;
+        }
     }
-    
-    
+
+
 }

@@ -6,6 +6,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\LeonardoStore.Customer.Domain\LeonardoStore.Customer.Domain.csproj" />
+      <ProjectReference Include="..\LeonardoStore.Customer.Infra\LeonardoStore.Customer.Infra.csproj" />
       <ProjectReference Include="..\LeonardoStore.SharedContext\LeonardoStore.SharedContext.csproj" />
     </ItemGroup>
 
