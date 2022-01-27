@@ -13,7 +13,7 @@ namespace LeonardoStore.Customer.Application.Queries
 
     public class UserToken
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
         public string Email { get; set; }
         public IEnumerable<UserClaim> Claims { get; set; }
     }

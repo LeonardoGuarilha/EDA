@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "YzTYNn+TBtDC/F6q6NLQ0ql5arbIGtAusHagA50o0QPewvrgfhGXRN5vv9uIPWU7TCvWZqPaEDiPcR3/3609DA==",
+  "dgSpecHash": "TT4Z3OV8SpgQgDKkUcOjrA0l7x2AvUnCsHx1eP3aPnus6c5kgAIl4BqPa6ZBZZdnODX9JlQKkQq5Ge+Hbzt83g==",
   "success": true,
   "projectFilePath": "/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Infra/LeonardoStore.Customer.Infra.csproj",
   "expectedPackageFiles": [
     "/Users/leonardoguarilha/.nuget/packages/flunt/1.0.5/flunt.1.0.5.nupkg.sha512",
-    "/Users/leonardoguarilha/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/3.1.3/microsoft.aspnetcore.authentication.jwtbearer.3.1.3.nupkg.sha512",
+    "/Users/leonardoguarilha/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/3.1.7/microsoft.aspnetcore.authentication.jwtbearer.3.1.7.nupkg.sha512",
     "/Users/leonardoguarilha/.nuget/packages/microsoft.aspnetcore.cryptography.internal/3.1.7/microsoft.aspnetcore.cryptography.internal.3.1.7.nupkg.sha512",
     "/Users/leonardoguarilha/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/3.1.7/microsoft.aspnetcore.cryptography.keyderivation.3.1.7.nupkg.sha512",
     "/Users/leonardoguarilha/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/3.1.7/microsoft.aspnetcore.identity.entityframeworkcore.3.1.7.nupkg.sha512",

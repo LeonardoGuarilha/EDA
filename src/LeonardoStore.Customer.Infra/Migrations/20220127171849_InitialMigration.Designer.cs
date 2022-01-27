@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LeonardoStore.Customer.Infra.Migrations
 {
     [DbContext(typeof(IdentityDbContext))]
-    [Migration("20220127132823_AddRefreshToken")]
-    partial class AddRefreshToken
+    [Migration("20220127171849_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,9 +31,6 @@ namespace LeonardoStore.Customer.Infra.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("Token")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Username")

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LeonardoStore.Customer.Infra.Migrations.CustomerDb
 {
     [DbContext(typeof(CustomerDbContext))]
-    [Migration("20220126135116_InitialMigration")]
+    [Migration("20220127171952_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -31,9 +31,6 @@ namespace LeonardoStore.Customer.Infra.Migrations
                     b.Property<Guid>("Token")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 

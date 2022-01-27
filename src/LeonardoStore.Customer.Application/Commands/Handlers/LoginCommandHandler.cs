@@ -55,7 +55,7 @@ namespace LeonardoStore.Customer.Application.Commands.Handlers
                     "Login realizado com sucesso",
                     new
                     {
-                      jwt = _authenticationAuthorizationService.CreateJwt(command.Email, customer.Id)
+                      jwt = _authenticationAuthorizationService.CreateJwt(command.Email)
                     });
             }
             
@@ -90,7 +90,7 @@ namespace LeonardoStore.Customer.Application.Commands.Handlers
                 "Token gerado com sucesso!",
                 new
                 {
-                    jwt = _authenticationAuthorizationService.CreateJwt(token.Username, token.UserId)
+                    jwt = _authenticationAuthorizationService.CreateJwt(token.Username)
                 });
             
             

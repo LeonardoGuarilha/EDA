@@ -10,7 +10,7 @@ namespace LeonardoStore.Customer.Infra.DataContexts
     {
         public IdentityDbContext(DbContextOptions<IdentityDbContext> options) : base(options) { }
         
-        public DbSet<SecurityKeyWithPrivate> SecurityKeys { get; set; }
+        public DbSet<SecurityKeyWithPrivate> SecurityKeys { get; set; } // Salva as chaves priadas do JWK
 
         public DbSet<RefreshToken> RefreshTokens { get; set; }
     }

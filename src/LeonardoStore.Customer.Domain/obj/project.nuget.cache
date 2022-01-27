@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "XdRPcfim/xE6EmlER3n5vNErAEqyGVwzc4eQFKiwmTIX20TUhJTT08rGB0AHhBgXwqCpip/0CQfebkp9pCYmIw==",
+  "dgSpecHash": "6oS6zv3iSWhaIYkf1DWzFA3pyguJqhiqgutU59tIFsENPl5VpRHQzO25HFz9SBl19Ny0IrGigHHs95djvG0I6w==",
   "success": true,
   "projectFilePath": "/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Domain/LeonardoStore.Customer.Domain.csproj",
   "expectedPackageFiles": [
     "/Users/leonardoguarilha/.nuget/packages/flunt/1.0.5/flunt.1.0.5.nupkg.sha512",
-    "/Users/leonardoguarilha/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/3.1.3/microsoft.aspnetcore.authentication.jwtbearer.3.1.3.nupkg.sha512",
+    "/Users/leonardoguarilha/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/3.1.7/microsoft.aspnetcore.authentication.jwtbearer.3.1.7.nupkg.sha512",
     "/Users/leonardoguarilha/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
     "/Users/leonardoguarilha/.nuget/packages/microsoft.identitymodel.jsonwebtokens/5.5.0/microsoft.identitymodel.jsonwebtokens.5.5.0.nupkg.sha512",
     "/Users/leonardoguarilha/.nuget/packages/microsoft.identitymodel.logging/6.7.1/microsoft.identitymodel.logging.6.7.1.nupkg.sha512",

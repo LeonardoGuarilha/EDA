@@ -20,6 +20,7 @@ namespace LeonardoStore.Customer.Application.Services
     {
         public readonly SignInManager<IdentityUser> SignInManager; // Gerencia questoes de login
         public readonly UserManager<IdentityUser> UserManager; // Gerencia como que eu administro o usuário
+        public readonly RoleManager<IdentityRole> RoleManager;
         private readonly IJsonWebKeySetService _jwksService;
         private readonly IdentityDbContext _context;
         private readonly AppTokenSettings _appTokenSettingsSettings;
@@ -28,35 +29,37 @@ namespace LeonardoStore.Customer.Application.Services
             UserManager<IdentityUser> userManager, 
             IJsonWebKeySetService jwksService, 
             IdentityDbContext context, 
-            IOptions<AppTokenSettings> appTokenSettingsSettings)
+            IOptions<AppTokenSettings> appTokenSettingsSettings,
+            RoleManager<IdentityRole> roleManager)
         {
             SignInManager = signInManager;
             UserManager = userManager;
             _jwksService = jwksService;
             _context = context;
+            RoleManager = roleManager;
             _appTokenSettingsSettings = appTokenSettingsSettings.Value;
         }
         
-        public async Task<UserLoginQuery> CreateJwt(string email, Guid userId)
+        public async Task<UserLoginQuery> CreateJwt(string email)
         {
             var user = await UserManager.FindByEmailAsync(email);
             var claims = await UserManager.GetClaimsAsync(user);
 
-            var identityClaims = await GetUserClaims(claims, user, userId);
+            var identityClaims = await GetUserClaims(claims, user);
             var encodedToken = CodifyToken(identityClaims);
 
             // Gera o Refresh Token
-            var refreshToken = await GerarRefreshToken(email, userId);
+            var refreshToken = await GerarRefreshToken(email);
 
-            return GetTokenResponse(encodedToken, email, userId, claims, refreshToken);
+            return GetTokenResponse(encodedToken, user, claims, refreshToken);
         }
         
-        private async Task<ClaimsIdentity> GetUserClaims(ICollection<Claim> claims, IdentityUser user, Guid userId)
+        private async Task<ClaimsIdentity> GetUserClaims(ICollection<Claim> claims, IdentityUser user)
         {
             var userRoles = await UserManager.GetRolesAsync(user);
 
             // Lista de claims
-            claims.Add(new Claim(JwtRegisteredClaimNames.Sub, userId.ToString()));
+            claims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()));
             claims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email));
             claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
             claims.Add(new Claim(JwtRegisteredClaimNames.Nbf, ToUnixEpochDate(DateTime.UtcNow).ToString()));
@@ -86,7 +89,7 @@ namespace LeonardoStore.Customer.Application.Services
             var tokenHandler = new JwtSecurityTokenHandler();
 
             // Pega o endpoint da API de Identidade
-            var currentIssuer = "http://localhost:5000";
+            var currentIssuer = "localhost";
             
             // Gero a chave do token, vai gerar uma chave aleatória
             // Se ele não tiver, ele vai gerar uma
@@ -106,7 +109,7 @@ namespace LeonardoStore.Customer.Application.Services
             return tokenHandler.WriteToken(token);
         }
         
-        private UserLoginQuery GetTokenResponse(string encodedToken, string email, Guid userId,
+        private UserLoginQuery GetTokenResponse(string encodedToken, IdentityUser user,
             IEnumerable<Claim> claims, RefreshToken refreshToken)
         {
             return new UserLoginQuery
@@ -116,8 +119,8 @@ namespace LeonardoStore.Customer.Application.Services
                 ExpiresIn = TimeSpan.FromHours(1).TotalSeconds,
                 UsuarioToken = new UserToken
                 {
-                    Id = userId,
-                    Email = email,
+                    Id = user.Id,
+                    Email = user.Email,
                     Claims = claims.Select(c => new UserClaim { Type = c.Type, Value = c.Value })
                 }
             };
@@ -129,13 +132,12 @@ namespace LeonardoStore.Customer.Application.Services
             => (long)Math.Round((date.ToUniversalTime() - new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero)).TotalSeconds);
 
         
-        private async Task<RefreshToken> GerarRefreshToken(string email, Guid userId)
+        private async Task<RefreshToken> GerarRefreshToken(string email)
         {
             var refreshToken = new RefreshToken
             {
                 Username = email,
                 ExpirationDate = DateTime.UtcNow.AddHours(_appTokenSettingsSettings.RefreshTokenExpiration),
-                UserId = userId
             };
 
             // Sempre que eu gerar um token para um usuário, eu removo os antigos

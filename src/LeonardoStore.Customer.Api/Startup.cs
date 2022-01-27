@@ -40,6 +40,7 @@ namespace LeonardoStore.Customer.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddIdentityConfiguration(Configuration);
+
             services.AddDbContext<CustomerDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             
@@ -63,6 +64,7 @@ namespace LeonardoStore.Customer.Api
             services.AddScoped<AuthenticationAuthorizationService>();
             services.AddScoped<CustomerCommandHandler>();
             services.AddScoped<LoginCommandHandler>();
+            services.AddScoped<RolesCommandHandler>();
 
         }
 
@@ -80,11 +82,11 @@ namespace LeonardoStore.Customer.Api
             
             app.UseCors("Total");
 
-            app.UseAuthorization();
+            app.UseAuthConfiguration();
+            
+            app.UseJwksDiscovery(); // Faço a exposição da chave pública
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-            
-            app.UseJwksDiscovery();
         }
     }
 }

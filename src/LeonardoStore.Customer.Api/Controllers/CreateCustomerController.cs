@@ -18,9 +18,9 @@ namespace LeonardoStore.Customer.Api.Controllers
 
         [HttpPost]
         [Route("customer")]
-        public Task<ICommandResult> CreateCustomer([FromBody] CreateCustomerCommand command)
+        public async Task<ICommandResult> CreateCustomer([FromBody] CreateCustomerCommand command)
         {
-            return _handler.HandleAsync(command);
+            return await _handler.HandleAsync(command);
         }
     }
 }

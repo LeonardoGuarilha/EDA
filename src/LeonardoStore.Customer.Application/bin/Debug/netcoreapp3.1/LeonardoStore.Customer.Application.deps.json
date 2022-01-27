@@ -1170,7 +1170,8 @@
       "LeonardoStore.Customer.Domain/1.0.0": {
         "dependencies": {
           "Flunt": "1.0.5",
-          "LeonardoStore.SharedContext": "1.0.0"
+          "LeonardoStore.SharedContext": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.7"
         },
         "runtime": {
           "LeonardoStore.Customer.Domain.dll": {}
@@ -1179,6 +1180,7 @@
       "LeonardoStore.Customer.Infra/1.0.0": {
         "dependencies": {
           "LeonardoStore.Customer.Domain": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.7",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.7",
           "Microsoft.EntityFrameworkCore": "3.1.7",
           "Microsoft.EntityFrameworkCore.Abstractions": "3.1.7",

@@ -1,3 +1,4 @@
+using System;
 using System.Net.Http;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -15,22 +16,14 @@ namespace LeonardoStore.SharedContext.IdentityConfig
             var appSettingsSection = configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
             var appSettings = appSettingsSection.Get<AppSettings>();
-            
-            services.AddAuthentication(x =>
-            {
-                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(x =>
-            {
-                x.RequireHttpsMetadata = false;
-                x.BackchannelHttpHandler = new HttpClientHandler
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(x =>
                 {
-                    ServerCertificateCustomValidationCallback =
-                        delegate { return true; }
-                };
-                x.SaveToken = true;
-                x.SetJwksOptions(new JwkOptions(appSettings.JwksUrlAuthentication));
-            });
+                    x.RequireHttpsMetadata = false;
+                    x.SaveToken = true; // Sava em cache
+                    x.SetJwksOptions(new JwkOptions(appSettings.JwksUrlAuthentication, "localhost", TimeSpan.FromMinutes(15)));
+                });
         }
         
         public static void UseAuthConfiguration(this IApplicationBuilder app)

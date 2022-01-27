@@ -18,16 +18,16 @@ namespace LeonardoStore.Customer.Api.Controllers
 
         [HttpPost]
         [Route("login")]
-        public Task<ICommandResult> Login([FromBody] LoginCustomerCommand command)
+        public async Task<ICommandResult> Login([FromBody] LoginCustomerCommand command)
         {
-            return _handler.HandleAsync(command);
+            return await _handler.HandleAsync(command);
         }
 
         [HttpPost]
         [Route("refresh-token")]
-        public Task<ICommandResult> RefreshToken([FromBody] RefreshTokenCommand command)
+        public async Task<ICommandResult> RefreshToken([FromBody] RefreshTokenCommand command)
         {
-            return _handler.HandleAsync(command);
+            return await _handler.HandleAsync(command);
         }
     }
 }
