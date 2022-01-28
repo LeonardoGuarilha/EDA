@@ -24,6 +24,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeonardoStore.Customer.Appl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeonardoStore.Customer.Infra", "src\LeonardoStore.Customer.Infra\LeonardoStore.Customer.Infra.csproj", "{2ED942B3-22C6-45C4-8C72-82D95D55C29D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityContext", "IdentityContext", "{EBD142A2-D6B6-4FEC-9986-2543719B0963}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeonardoStore.Identity.Api", "src\LeonardoStore.Identity.Api\LeonardoStore.Identity.Api.csproj", "{02B0BC51-E68D-4FED-9378-5EB2FEBAE36A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,8 @@ Global
 		{4E8AA2FA-E731-4C8D-B0E0-79E14602070D} = {DF05A8F8-510B-43D3-81A1-DCEE85BA5030}
 		{2B0B250D-3F8D-4A27-B76B-4F084DF1827F} = {DF05A8F8-510B-43D3-81A1-DCEE85BA5030}
 		{2ED942B3-22C6-45C4-8C72-82D95D55C29D} = {DF05A8F8-510B-43D3-81A1-DCEE85BA5030}
+		{EBD142A2-D6B6-4FEC-9986-2543719B0963} = {97893E4F-EFF7-48BA-AF4C-A8CD944A899F}
+		{02B0BC51-E68D-4FED-9378-5EB2FEBAE36A} = {EBD142A2-D6B6-4FEC-9986-2543719B0963}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{17FF7353-6071-45DC-89CD-38835779210D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -75,5 +81,9 @@ Global
 		{2ED942B3-22C6-45C4-8C72-82D95D55C29D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2ED942B3-22C6-45C4-8C72-82D95D55C29D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2ED942B3-22C6-45C4-8C72-82D95D55C29D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02B0BC51-E68D-4FED-9378-5EB2FEBAE36A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02B0BC51-E68D-4FED-9378-5EB2FEBAE36A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02B0BC51-E68D-4FED-9378-5EB2FEBAE36A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02B0BC51-E68D-4FED-9378-5EB2FEBAE36A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
