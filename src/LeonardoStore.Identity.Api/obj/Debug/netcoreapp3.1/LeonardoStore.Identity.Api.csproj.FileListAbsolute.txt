@@ -50,6 +50,7 @@
 /Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Identity.Api/bin/Debug/netcoreapp3.1/NetDevPack.Security.JwtSigningCredentials.AspNetCore.dll
 /Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Identity.Api/bin/Debug/netcoreapp3.1/NetDevPack.Security.JwtSigningCredentials.Store.EntityFrameworkCore.dll
 /Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Identity.Api/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Identity.Api/bin/Debug/netcoreapp3.1/RabbitMQ.Client.dll
 /Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Identity.Api/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.Swagger.dll
 /Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Identity.Api/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Identity.Api/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -83,3 +84,5 @@
 /Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Identity.Api/obj/Debug/netcoreapp3.1/LeonardoStore.Identity.Api.dll
 /Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Identity.Api/obj/Debug/netcoreapp3.1/LeonardoStore.Identity.Api.pdb
 /Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Identity.Api/obj/Debug/netcoreapp3.1/LeonardoStore.Identity.Api.genruntimeconfig.cache
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Identity.Api/bin/Debug/netcoreapp3.1/EasyNetQ.dll
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Identity.Api/bin/Debug/netcoreapp3.1/Polly.dll

@@ -1,14 +1,11 @@
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 using Flunt.Notifications;
-using LeonardoStore.Customer.Application.Services;
 using LeonardoStore.Customer.Domain.Enums;
 using LeonardoStore.Customer.Domain.Repositories;
 using LeonardoStore.Customer.Domain.ValueObjects;
 using LeonardoStore.SharedContext.Commands;
 using LeonardoStore.SharedContext.Commands.Handler;
-using Microsoft.AspNetCore.Identity;
 
 
 namespace LeonardoStore.Customer.Application.Commands.Handlers
@@ -18,12 +15,11 @@ namespace LeonardoStore.Customer.Application.Commands.Handlers
         ICommandHandler<CreateCustomerCommand>
     {
         private readonly ICustomerRepository _customerRepository;
-        private readonly AuthenticationAuthorizationService _authenticationAuthorizationService;
 
-        public CustomerCommandHandler(ICustomerRepository customerRepository, AuthenticationAuthorizationService authenticationAuthorizationService)
+        public CustomerCommandHandler(ICustomerRepository customerRepository)
         {
             _customerRepository = customerRepository;
-            _authenticationAuthorizationService = authenticationAuthorizationService;
+            
         }
 
         public async Task<ICommandResult> HandleAsync(CreateCustomerCommand command)
@@ -60,39 +56,27 @@ namespace LeonardoStore.Customer.Application.Commands.Handlers
             if(Invalid)
                 return new CommandResult(false, "Não foi possível realizar seu cadastro, verifique as informações", Notifications);
             
-            // Cria o usuário do Identity
-            var user = new IdentityUser
-            {
-                UserName = command.Email,
-                Email = command.Email,
-                EmailConfirmed = true
-            };
-            
-            var result = await _authenticationAuthorizationService.UserManager.CreateAsync(user, command.Password);
-
-            if (result.Succeeded)
-            {
                 // Salvar as informações
-                _customerRepository.SaveCustomer(customer);
-            
-                await _customerRepository.UnitOfWork.Commit();
+            _customerRepository.SaveCustomer(customer);
+        
+            await _customerRepository.UnitOfWork.Commit();
 
-                // Envia e-mail de boas vindas
-                customer.OnCustomerCreatedEvent += OnCustomerCreatedEvent;
-                customer.CustomerCreatedEvent();
+            // Envia e-mail de boas vindas
+            customer.OnCustomerCreatedEvent += OnCustomerCreatedEvent;
+            customer.CustomerCreatedEvent();
 
-                // Retornar informações
-                return new CommandResult(
-                    true, 
-                    "Cliente criado com sucesso!", 
-                    new
-                    {
-                        Id = customer.Id,
-                        Name = customer.Name.ToString(),
-                    });
-            }
+            // Retornar informações
+            return new CommandResult(
+                true, 
+                "Cliente criado com sucesso!", 
+                new
+                {
+                    Id = customer.Id,
+                    Name = customer.Name.ToString(),
+                });
+            //}
 
-            return new CommandResult(false, "Não foi possível realizar seu cadastro, verifique as informações", result.Errors.Select(e => e.Description));
+            //return new CommandResult(false, "Não foi possível realizar seu cadastro, verifique as informações", Notifications);
         }
         
         private void OnCustomerCreatedEvent(object sender, EventArgs args)

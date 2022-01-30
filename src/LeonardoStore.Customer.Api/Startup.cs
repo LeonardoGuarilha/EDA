@@ -1,17 +1,16 @@
-using LeonardoStore.Customer.Api.Configurations;
 using LeonardoStore.Customer.Application.Commands.Handlers;
-using LeonardoStore.Customer.Application.Services;
+using LeonardoStore.Customer.Application.DataService;
 using LeonardoStore.Customer.Domain.Repositories;
 using LeonardoStore.Customer.Infra.DataContexts;
 using LeonardoStore.Customer.Infra.Repositories;
 using LeonardoStore.SharedContext.IdentityConfig;
+using LeonardoStore.SharedContext.MessageBus;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using NetDevPack.Security.JwtSigningCredentials.AspNetCore;
 
 namespace LeonardoStore.Customer.Api
 {
@@ -39,7 +38,7 @@ namespace LeonardoStore.Customer.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddIdentityConfiguration(Configuration);
+            //services.AddIdentityConfiguration(Configuration);
 
             services.AddDbContext<CustomerDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -59,13 +58,11 @@ namespace LeonardoStore.Customer.Api
             services.AddJwtConfiguration(Configuration);
 
             services.AddScoped<CustomerDbContext>();
-            services.AddScoped<IdentityDbContext>();
             services.AddScoped<ICustomerRepository, CustomerRepository>();
-            services.AddScoped<AuthenticationAuthorizationService>();
             services.AddScoped<CustomerCommandHandler>();
-            services.AddScoped<LoginCommandHandler>();
-            services.AddScoped<RolesCommandHandler>();
-
+            //services.AddSingleton<IEventProcessor, EventProcessor>();
+            services.AddHostedService<MessageBusSubscriber>();
+            services.AddMessageBus(Configuration.GetMessageQueueConnection("MessageBus"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -83,8 +80,6 @@ namespace LeonardoStore.Customer.Api
             app.UseCors("Total");
 
             app.UseAuthConfiguration();
-            
-            app.UseJwksDiscovery(); // Faço a exposição da chave pública
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }

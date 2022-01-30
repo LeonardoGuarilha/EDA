@@ -1,8 +1,9 @@
-using System;
 using System.Threading.Tasks;
 using LeonardoStore.Identity.Api.Models;
 using LeonardoStore.Identity.Api.Services;
 using LeonardoStore.SharedContext.Commands;
+using LeonardoStore.SharedContext.IntegrationEvents;
+using LeonardoStore.SharedContext.MessageBus;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,10 +13,16 @@ namespace LeonardoStore.Identity.Api.Controllers
     public class CreateUserController : Controller
     {
         private readonly AuthenticationAuthorizationService _authenticationAuthorizationService;
+        //private readonly IMessageBusClient _messageBusClient;
+        private readonly IMessageBus _messageBus;
 
-        public CreateUserController(AuthenticationAuthorizationService authenticationAuthorizationService)
+        public CreateUserController(AuthenticationAuthorizationService authenticationAuthorizationService, 
+            //IMessageBusClient messageBusClient, 
+            IMessageBus messageBus)
         {
             _authenticationAuthorizationService = authenticationAuthorizationService;
+            //_messageBusClient = messageBusClient;
+            _messageBus = messageBus;
         }
 
         [HttpPost]
@@ -39,10 +46,13 @@ namespace LeonardoStore.Identity.Api.Controllers
 
             if (result.Succeeded)
             {
-                // Fazer ontegração com customer(RabbitMQ)
-                // Verificar se foi salvo com sucesso o customer
-                // Caso não, deletar o usuário criado
-                // Retornar o ICommandResult
+                var clientResult = await RegisterCustomer(userRegister);
+
+                if (!clientResult.Success)
+                {
+                    await _authenticationAuthorizationService.UserManager.DeleteAsync(user);
+                    return new CommandResult(false, "Erro ao cadastrar cliente, favor verificar", clientResult.Data);
+                }
             }
             
             return new CommandResult(true, "Usuário criado com sucesso", 
@@ -84,6 +94,26 @@ namespace LeonardoStore.Identity.Api.Controllers
                     null);
             
             return new CommandResult(false, "Usuário ou senha incorretos", null);
+        }
+
+        private async Task<CommandResult> RegisterCustomer(UserRegister userRegister)
+        {
+            var usuario = await _authenticationAuthorizationService
+                .UserManager.FindByEmailAsync(userRegister.Email);
+            
+            var userRegisteredEvent = new UserRegisteredEvent(userRegister.FirstName, userRegister.LastName, 
+                userRegister.Document, userRegister.Email);
+
+            try
+            {
+                return await _messageBus.RequestAsync<UserRegisteredEvent, CommandResult>(userRegisteredEvent);
+            }
+            catch
+            {
+                await _authenticationAuthorizationService.UserManager.DeleteAsync(usuario);
+                throw;
+            }
+            
         }
         
     }

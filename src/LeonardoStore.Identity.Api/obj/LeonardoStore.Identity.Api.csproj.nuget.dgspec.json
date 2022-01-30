@@ -149,6 +149,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "EasyNetQ": {
+              "target": "Package",
+              "version": "[5.1.1, )"
+            },
             "Flunt": {
               "target": "Package",
               "version": "[1.0.5, )"
@@ -160,6 +164,10 @@
             "NetDevPack.Security.JwtExtensions": {
               "target": "Package",
               "version": "[1.0.1, )"
+            },
+            "Polly": {
+              "target": "Package",
+              "version": "[7.2.1, )"
             }
           },
           "imports": [

@@ -1,18 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using LeonardoStore.Identity.Api.Configurations;
 using LeonardoStore.Identity.Api.Services;
 using LeonardoStore.SharedContext.IdentityConfig;
+using LeonardoStore.SharedContext.MessageBus;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using NetDevPack.Security.JwtSigningCredentials.AspNetCore;
 
 namespace LeonardoStore.Identity.Api
@@ -42,6 +36,7 @@ namespace LeonardoStore.Identity.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddIdentityConfiguration(Configuration);
+            
             services.AddControllers();
             services.AddCors(options =>
             {
@@ -54,6 +49,7 @@ namespace LeonardoStore.Identity.Api
             });
 
             services.AddScoped<AuthenticationAuthorizationService>();
+            services.AddMessageBus(Configuration.GetMessageQueueConnection("MessageBus"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -89,3 +89,6 @@
 /Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Api/obj/Debug/netcoreapp3.1/LeonardoStore.Customer.Api.dll
 /Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Api/obj/Debug/netcoreapp3.1/LeonardoStore.Customer.Api.pdb
 /Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Api/obj/Debug/netcoreapp3.1/LeonardoStore.Customer.Api.genruntimeconfig.cache
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Api/bin/Debug/netcoreapp3.1/RabbitMQ.Client.dll
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Api/bin/Debug/netcoreapp3.1/EasyNetQ.dll
+/Users/leonardoguarilha/dev/Dotnet/Studies/EDA/LeonardoStore/src/LeonardoStore.Customer.Api/bin/Debug/netcoreapp3.1/Polly.dll
