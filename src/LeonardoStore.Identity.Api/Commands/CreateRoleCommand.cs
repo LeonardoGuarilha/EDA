@@ -2,7 +2,7 @@ using Flunt.Notifications;
 using Flunt.Validations;
 using LeonardoStore.SharedContext.Commands;
 
-namespace LeonardoStore.Customer.Application.Commands
+namespace LeonardoStore.Identity.Api.Commands
 {
     public class CreateRoleCommand : Notifiable, ICommand
     {

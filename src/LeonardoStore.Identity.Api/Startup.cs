@@ -1,3 +1,4 @@
+using LeonardoStore.Identity.Api.Commands.Handlers;
 using LeonardoStore.Identity.Api.Configurations;
 using LeonardoStore.Identity.Api.Services;
 using LeonardoStore.SharedContext.IdentityConfig;
@@ -48,6 +49,8 @@ namespace LeonardoStore.Identity.Api
                             .AllowAnyHeader());
             });
 
+            services.AddScoped<CreateRoleCommandHandler>();
+            services.AddScoped<UserToRoleHandler>();
             services.AddScoped<AuthenticationAuthorizationService>();
             services.AddMessageBus(Configuration.GetMessageQueueConnection("MessageBus"));
         }
