@@ -20,7 +20,7 @@ namespace LeonardoStore.Identity.Api.Commands.Handlers
             _authenticationAuthorizationService = authenticationAuthorizationService;
         }
 
-        public async Task<ICommandResult> HandleAsync(CreateRoleCommand command)
+        public async Task<CommandResult> HandleAsync(CreateRoleCommand command)
         {
             // Fail Fast Validation
             command.Validate();

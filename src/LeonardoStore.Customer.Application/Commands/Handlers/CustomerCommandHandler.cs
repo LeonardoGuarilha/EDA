@@ -22,7 +22,7 @@ namespace LeonardoStore.Customer.Application.Commands.Handlers
             
         }
 
-        public async Task<ICommandResult> HandleAsync(CreateCustomerCommand command)
+        public async Task<CommandResult> HandleAsync(CreateCustomerCommand command)
         {
             // Fail Fast Validation
             command.Validate();
@@ -68,7 +68,7 @@ namespace LeonardoStore.Customer.Application.Commands.Handlers
             // Retornar informações
             return new CommandResult(
                 true, 
-                "Cliente criado com sucesso!", 
+                "Cliente criado com sucesso!!", 
                 new
                 {
                     Id = customer.Id,

@@ -4,6 +4,6 @@ namespace LeonardoStore.SharedContext.Commands.Handler
 {
     public interface ICommandHandler<T> where T: ICommand
     {
-        Task<ICommandResult> HandleAsync(T command);
+        Task<CommandResult> HandleAsync(T command);
     }
 }

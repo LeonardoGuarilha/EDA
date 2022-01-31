@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using LeonardoStore.Identity.Api.Models;
 using LeonardoStore.Identity.Api.Services;
@@ -55,12 +56,8 @@ namespace LeonardoStore.Identity.Api.Controllers
                 }
             }
             
-            return new CommandResult(true, "Usuário criado com sucesso", 
-                new
-                {
-                    Id = user.Id,
-                    Email = userRegister.Email
-                });
+            return new CommandResult(true, "Erro ao criar usuário, favor verificar", 
+                result.Errors.Select(e => e.Description).ToList());
         }
 
         [HttpPost]
@@ -106,6 +103,7 @@ namespace LeonardoStore.Identity.Api.Controllers
 
             try
             {
+                
                 return await _messageBus.RequestAsync<UserRegisteredEvent, CommandResult>(userRegisteredEvent);
             }
             catch

@@ -61,7 +61,16 @@ namespace LeonardoStore.Customer.Application.DataService
                             createCustomerCommand.Document = userRegisteredEvent.Document;
                             createCustomerCommand.Email = userRegisteredEvent.Email;
 
-                            await customerCommandTeste.HandleAsync(createCustomerCommand);
+                            var result = await customerCommandTeste.HandleAsync(createCustomerCommand);
+                            
+                            if (!result.Success)
+                            {
+                                return new CommandResult(
+                                    false,
+                                    result.Message,
+                                    result.Data);
+                            }
+                            
                         }
                     }
                     catch (Exception e)

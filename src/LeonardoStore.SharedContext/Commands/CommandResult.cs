@@ -12,10 +12,5 @@ namespace LeonardoStore.SharedContext.Commands
             Message = message;
             Data = data;
         }
-
-        public CommandResult()
-        {
-            
-        }
     }
 }
